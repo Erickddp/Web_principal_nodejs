@@ -57,7 +57,7 @@ export const CARDS: CardConfig[] = [
         note: "",
         preview: {
             type: "iframe",
-            url: "https://app.evorix.com.mx",
+            url: "https://proyectos.erickddp.com/",
             fallbackImage: "/previews/projects.svg",
         },
     },
