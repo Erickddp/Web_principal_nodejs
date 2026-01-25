@@ -51,7 +51,7 @@ export const CARDS: CardConfig[] = [
         title: "Proyectos Activos",
         subtitle: "Automatizacion contable", // Updated
         description: "Sistemas y proyectos en desarrollo enfocados en automatizar procesos, reducir errores y facilitar la contabilidad mediante tecnología y diseño inteligente.",
-        href: "https://app.evorix.com.mx",
+        href: "https://proyectos.erickddp.com/",
         badge: "Code",
         ctaLabel: "View Proyectos",
         note: "",
