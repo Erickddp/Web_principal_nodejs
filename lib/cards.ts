@@ -34,7 +34,7 @@ export interface CardConfig {
 export const CARDS: CardConfig[] = [
     {
         id: "website",
-        title: "Sitio Profesional",
+        title: "Sitio Web Profesional",
         subtitle: "Servicios y herramientas", // Updated
         description: "Mi espacio profesional donde ofrezco servicios contables, asesoría estratégica y herramientas diseñadas para simplificar la operación y el cumplimiento fiscal.",
         href: "https://web.erickddp.com",
