@@ -45,25 +45,25 @@ export function WebsitePreview({ url, fallbackImage, title }: WebsitePreviewProp
     };
 
     return (
-        <div className="flex flex-col w-full h-[50vh] sm:h-[60vh] bg-black rounded-lg border border-white/10 overflow-hidden shadow-inner">
+        <div className="flex flex-col w-full h-[50vh] sm:h-[60vh] bg-[var(--bg-canvas)] rounded-lg border border-[var(--card-border)] overflow-hidden shadow-inner">
             {/* Top Bar */}
-            <div className="flex items-center justify-between px-3 py-2 bg-white/5 border-b border-white/10 shrink-0">
+            <div className="flex items-center justify-between px-3 py-2 bg-[var(--card-bg)] border-b border-[var(--card-border)] shrink-0">
                 <div className="flex items-center gap-2">
                     <div className="flex gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
                         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
                         <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
                     </div>
-                    <span className="text-xs text-gray-500 ml-2 font-mono truncated max-w-[150px] opacity-50">
+                    <span className="text-xs text-[var(--fg-muted)] ml-2 font-mono truncated max-w-[150px]">
                         {url}
                     </span>
                 </div>
 
                 {/* Toggle Switch */}
-                <div className="flex bg-black/50 rounded-lg p-0.5 border border-white/10">
+                <div className="flex bg-[var(--card-border)] rounded-lg p-0.5 border border-[var(--card-border)]">
                     <button
                         onClick={switchToLive}
-                        className={`px-3 py-1 text-[10px] font-medium rounded-md transition-all ${showIframe ? "bg-blue-600 text-white shadow-sm" : "text-gray-400 hover:text-white"
+                        className={`px-3 py-1 text-[10px] font-medium rounded-md transition-all ${showIframe ? "bg-[var(--accent-primary)] text-white shadow-sm" : "text-[var(--fg-muted)] hover:text-[var(--fg-primary)]"
                             }`}
                     >
                         Live

@@ -6,7 +6,7 @@ export function SocialFooter() {
         <footer className="w-full flex flex-col items-center py-6 mt-12 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300">
 
             {/* Subtle Label */}
-            <span className="text-xs tracking-[0.25em] uppercase text-white/50 mb-5">
+            <span className="text-xs tracking-[0.25em] uppercase text-[var(--label-fg)] mb-5">
                 Contacto directo
             </span>
 
@@ -20,10 +20,10 @@ export function SocialFooter() {
                     className="group flex flex-col items-center gap-3"
                     aria-label="Contact via WhatsApp"
                 >
-                    <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-active:scale-95 group-hover:bg-[#25D366]/20 group-hover:border-[#25D366]/50 shadow-lg group-hover:shadow-[#25D366]/30">
-                        <WhatsAppIcon className="w-7 h-7 text-gray-300 group-hover:text-[#25D366] transition-colors duration-300" />
+                    <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-active:scale-95 group-hover:bg-[#25D366]/20 group-hover:border-[#25D366]/50 shadow-lg group-hover:shadow-[#25D366]/30">
+                        <WhatsAppIcon className="w-7 h-7 text-[var(--fg-secondary)] group-hover:text-[#25D366] transition-colors duration-300" />
                     </div>
-                    <span className="text-[10px] text-white/45 tracking-wider font-medium group-hover:text-[#25D366] transition-colors duration-300">
+                    <span className="text-[10px] text-[var(--label-fg)] tracking-wider font-medium group-hover:text-[#25D366] transition-colors duration-300">
                         WhatsApp
                     </span>
                 </a>
@@ -36,10 +36,10 @@ export function SocialFooter() {
                     className="group flex flex-col items-center gap-3"
                     aria-label="Visit Facebook Profile"
                 >
-                    <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-active:scale-95 group-hover:bg-[#1877F2]/20 group-hover:border-[#1877F2]/50 shadow-lg group-hover:shadow-[#1877F2]/30">
-                        <FacebookIcon className="w-7 h-7 text-gray-300 group-hover:text-[#1877F2] transition-colors duration-300" />
+                    <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-active:scale-95 group-hover:bg-[#1877F2]/20 group-hover:border-[#1877F2]/50 shadow-lg group-hover:shadow-[#1877F2]/30">
+                        <FacebookIcon className="w-7 h-7 text-[var(--fg-secondary)] group-hover:text-[#1877F2] transition-colors duration-300" />
                     </div>
-                    <span className="text-[10px] text-white/45 tracking-wider font-medium group-hover:text-[#1877F2] transition-colors duration-300">
+                    <span className="text-[10px] text-[var(--label-fg)] tracking-wider font-medium group-hover:text-[#1877F2] transition-colors duration-300">
                         Facebook
                     </span>
                 </a>

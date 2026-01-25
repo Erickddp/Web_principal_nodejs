@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 export interface AnimatedBackgroundProps {
     intensity?: number;
@@ -18,6 +19,7 @@ export function AnimatedBackgroundCanvas({
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const animationRef = useRef<number>(0);
+    const { resolvedTheme } = useTheme(); // Use resolvedTheme to get actual 'light' or 'dark'
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -84,14 +86,25 @@ export function AnimatedBackgroundCanvas({
         };
 
         const draw = () => {
+            if (!ctx) return;
+
             // Trail effect
-            // Use logic: if blur is high, we clear less (more trails).
-            // actually standard trick is ctx.fillStyle = `rgba(0,0,0, ${1 - blur})`;
-            // If user sets blur 0.95 -> we want LONG trails -> opacity 0.05
-            // If user sets blur 0 -> we want NO trails -> opacity 1
             const fadeAlpha = 1 - Math.min(Math.max(blur, 0.05), 0.99); // Clamp for safety
 
-            ctx.fillStyle = `rgba(0, 0, 0, ${fadeAlpha})`;
+            // Determine background clear color based on theme
+            const isLight = resolvedTheme === "light";
+
+            if (isLight) {
+                // LIGHT MODE:
+                // We use a very light off-white (250, 250, 250) instead of pure white
+                // and a much lower alpha to prevent the "foggy/gray wash" effect while keeping trails.
+                const lightFade = Math.min(fadeAlpha * 0.6, 0.05);
+                ctx.fillStyle = `rgba(250, 250, 250, ${lightFade})`;
+            } else {
+                // Black fade for dark mode (standard)
+                ctx.fillStyle = `rgba(10, 10, 10, ${fadeAlpha})`;
+            }
+
             ctx.fillRect(0, 0, width, height);
 
             const baseHue = getBaseHue();
@@ -99,7 +112,6 @@ export function AnimatedBackgroundCanvas({
 
             particles.forEach((p) => {
                 // Flow field logic using simple trig noise
-                // Angle based on position
                 const zoom = 0.002;
                 const noise = Math.sin(p.x * zoom + time) + Math.cos(p.y * zoom + time) * 0.5;
                 const angle = noise * Math.PI * 2;
@@ -125,9 +137,19 @@ export function AnimatedBackgroundCanvas({
 
                 // Draw
                 ctx.beginPath();
-                const pColor = colorMode === "Mono"
-                    ? `hsla(0, 0%, 80%, 0.8)`
-                    : `hsla(${baseHue + p.hue}, 80%, 60%, 0.8)`;
+
+                let pColor;
+                if (isLight) {
+                    // Darker/Stronger colors for light mode
+                    pColor = colorMode === "Mono"
+                        ? `hsla(0, 0%, 20%, 0.6)` // Dark grey
+                        : `hsla(${baseHue + p.hue}, 80%, 40%, 0.6)`; // Darker hue
+                } else {
+                    // Lighter/Brighter colors for dark mode
+                    pColor = colorMode === "Mono"
+                        ? `hsla(0, 0%, 80%, 0.8)`
+                        : `hsla(${baseHue + p.hue}, 80%, 60%, 0.8)`;
+                }
 
                 ctx.fillStyle = pColor;
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -146,10 +168,10 @@ export function AnimatedBackgroundCanvas({
             window.removeEventListener("resize", resize);
             cancelAnimationFrame(animationRef.current);
         };
-    }, [intensity, particleCount, blur, colorMode]);
+    }, [intensity, particleCount, blur, colorMode, resolvedTheme]);
 
     return (
-        <div ref={containerRef} className="fixed inset-0 z-0 bg-black">
+        <div ref={containerRef} className="fixed inset-0 z-0 bg-[var(--bg-canvas)] transition-colors duration-500">
             <canvas ref={canvasRef} className="block w-full h-full" />
         </div>
     );

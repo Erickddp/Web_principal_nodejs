@@ -36,11 +36,11 @@ export function BackgroundControls({ params, onChange, onReset }: BackgroundCont
     };
 
     return (
-        <div className="fixed z-50 top-4 right-4 flex flex-col items-end">
+        <div className="fixed z-50 top-[max(1.25rem,env(safe-area-inset-top))] left-5 flex flex-col items-start">
             {/* Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all shadow-lg"
+                className="p-3 bg-[var(--card-bg)] backdrop-blur-md border border-[var(--card-border)] rounded-full text-[var(--fg-primary)] hover:bg-[var(--card-hover-bg)] transition-all shadow-lg"
                 aria-label="Toggle Controls"
             >
                 {isOpen ? <XIcon /> : <GearIcon />}
@@ -48,13 +48,13 @@ export function BackgroundControls({ params, onChange, onReset }: BackgroundCont
 
             {/* Panel */}
             {isOpen && (
-                <div className="mt-4 w-72 bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl animate-in fade-in slide-in-from-top-4">
-                    <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Animation Control</h3>
+                <div className="mt-4 w-72 bg-[var(--bg-overlay)] backdrop-blur-xl border border-[var(--card-border)] rounded-2xl p-6 shadow-2xl animate-in fade-in slide-in-from-top-4">
+                    <h3 className="text-[var(--fg-primary)] font-semibold mb-4 text-sm uppercase tracking-wider">Animation Control</h3>
 
                     <div className="space-y-5">
                         {/* Speed / Intensity */}
                         <div className="space-y-2">
-                            <div className="flex justify-between text-xs text-gray-400">
+                            <div className="flex justify-between text-xs text-[var(--fg-muted)]">
                                 <span>Speed</span>
                                 <span>{params.intensity.toFixed(1)}</span>
                             </div>
@@ -71,7 +71,7 @@ export function BackgroundControls({ params, onChange, onReset }: BackgroundCont
 
                         {/* Particle Count */}
                         <div className="space-y-2">
-                            <div className="flex justify-between text-xs text-gray-400">
+                            <div className="flex justify-between text-xs text-[var(--fg-muted)]">
                                 <span>Particles</span>
                                 <span>{params.particleCount}</span>
                             </div>
@@ -88,7 +88,7 @@ export function BackgroundControls({ params, onChange, onReset }: BackgroundCont
 
                         {/* Blur/Trail */}
                         <div className="space-y-2">
-                            <div className="flex justify-between text-xs text-gray-400">
+                            <div className="flex justify-between text-xs text-[var(--fg-muted)]">
                                 <span>Trails</span>
                                 <span>{(params.blur * 100).toFixed(0)}%</span>
                             </div>
@@ -105,15 +105,15 @@ export function BackgroundControls({ params, onChange, onReset }: BackgroundCont
 
                         {/* Color Mode */}
                         <div className="space-y-2">
-                            <label className="text-xs text-gray-400 block">Theme</label>
+                            <label className="text-xs text-[var(--fg-muted)] block">Theme</label>
                             <div className="grid grid-cols-3 gap-2">
                                 {["Neon", "Ocean", "Mono"].map((mode) => (
                                     <button
                                         key={mode}
                                         onClick={() => updateParam("colorMode", mode)}
                                         className={`px-2 py-1.5 text-xs rounded-md transition-colors border ${params.colorMode === mode
-                                                ? "bg-white text-black border-white"
-                                                : "bg-transparent text-gray-400 border-gray-700 hover:border-gray-500"
+                                            ? "bg-[var(--fg-primary)] text-[var(--bg-canvas)] border-[var(--fg-primary)]"
+                                            : "bg-transparent text-[var(--fg-muted)] border-[var(--card-border)] hover:border-[var(--fg-primary)]"
                                             }`}
                                     >
                                         {mode}
@@ -123,10 +123,10 @@ export function BackgroundControls({ params, onChange, onReset }: BackgroundCont
                         </div>
 
                         {/* Reset */}
-                        <div className="pt-4 border-t border-white/10">
+                        <div className="pt-4 border-t border-[var(--card-border)]">
                             <button
                                 onClick={onReset}
-                                className="w-full py-2 text-xs font-medium text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition-colors"
+                                className="w-full py-2 text-xs font-medium text-[var(--fg-secondary)] hover:text-[var(--fg-primary)] bg-[var(--card-border)] hover:bg-[var(--card-hover-bg)] rounded-lg transition-colors"
                             >
                                 Reset to Defaults
                             </button>

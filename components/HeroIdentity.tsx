@@ -25,22 +25,22 @@ export function HeroIdentity() {
                 </div>
 
                 {/* Status Dot (Online/Active) */}
-                <div className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 border-2 border-black rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)] animate-pulse" />
+                <div className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 border-2 border-[var(--bg-canvas)] rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)] animate-pulse" />
             </div>
 
             {/* Name */}
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-3 drop-shadow-xl bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[var(--fg-primary)] mb-3 drop-shadow-xl bg-clip-text text-transparent bg-gradient-to-b from-[var(--fg-primary)] to-[var(--fg-secondary)]">
                 Erick Domínguez
             </h1>
 
             {/* Subtitles */}
             <div className="space-y-2">
-                <p className="text-xl md:text-2xl font-light text-gray-300 tracking-wide uppercase">
+                <p className="text-xl md:text-2xl font-light text-[var(--fg-secondary)] tracking-wide uppercase">
                     Contador Público
                 </p>
                 <div className="flex items-center justify-center gap-2">
                     <span className="h-px w-8 bg-blue-500/50" />
-                    <p className="text-sm md:text-base font-medium text-blue-400 tracking-[0.2em] uppercase glow-text">
+                    <p className="text-sm md:text-base font-medium text-[var(--accent-primary)] tracking-[0.2em] uppercase glow-text">
                         Constructor de Sistemas
                     </p>
                     <span className="h-px w-8 bg-blue-500/50" />

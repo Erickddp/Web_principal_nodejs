@@ -1,8 +1,101 @@
 @import "tailwindcss";
 
 :root {
+  /* Core Backgrounds (Light Mode Default) */
+  --bg-canvas: #ffffff;
+  --bg-overlay: rgba(255, 255, 255, 0.95);
+
+  /* Text (High Contrast for Light Mode) */
+  --fg-primary: #111111;
+  --fg-secondary: #333333;
+  --fg-muted: #555555;
+
+  /* Cards / Glass (Cleaner White) */
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --card-border: rgba(0, 0, 0, 0.08);
+  /* Subtle border for light */
+  --card-hover-bg: rgba(255, 255, 255, 0.9);
+  --card-hover-border: rgba(59, 130, 246, 0.3);
+  /* Blue hint */
+
+  /* Modal */
+  --modal-bg: #ffffff;
+  --modal-overlay: rgba(0, 0, 0, 0.4);
+  /* Darker overlay for better contrast */
+  --modal-border: rgba(0, 0, 0, 0.1);
+
+  /* Accents */
+  --accent-glow: rgba(59, 130, 246, 0.2);
+  /* blue-500/20 */
+  --accent-primary: #2563eb;
+  /* blue-600 */
+
+  /* Badges & Pills */
+  --badge-bg: rgba(37, 99, 235, 0.1);
+  --badge-text: #1e3a8a;
+  /* dark blue */
+  --badge-border: rgba(37, 99, 235, 0.2);
+
+
+  --pill-bg: rgba(0, 0, 0, 0.06);
+  --pill-border: rgba(0, 0, 0, 0.06);
+  --pill-fg: rgba(0, 0, 0, 0.75);
+
+  --muted-fg: #666666;
+  /* Keep existing */
+  --label-fg: rgba(0, 0, 0, 0.55);
+
+  /* Canvas Particles */
+  --particle-color: 0, 0, 0;
+  /* RGB for use in Javascript alpha logic */
+
   --background: #ffffff;
   --foreground: #171717;
+}
+
+[data-theme='dark'] {
+  /* Core Backgrounds */
+  --bg-canvas: #0a0a0a;
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+
+  /* Text */
+  --fg-primary: #ffffff;
+  --fg-secondary: #e5e5e5;
+  --fg-muted: #a1a1aa;
+
+  /* Cards / Glass */
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-hover-bg: rgba(255, 255, 255, 0.1);
+  --card-hover-border: rgba(255, 255, 255, 0.2);
+
+  /* Modal */
+  --modal-bg: #0a0a0a;
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+  --modal-border: rgba(255, 255, 255, 0.1);
+
+  /* Accents */
+  --accent-glow: rgba(59, 130, 246, 0.2);
+  --accent-primary: #60a5fa;
+  /* blue-400 */
+
+  /* Badges & Pills */
+  --badge-bg: rgba(59, 130, 246, 0.2);
+  --badge-text: #bfdbfe;
+  /* blue-200 */
+  --badge-border: rgba(59, 130, 246, 0.3);
+
+  --pill-bg: rgba(255, 255, 255, 0.1);
+  --pill-border: rgba(255, 255, 255, 0.15);
+  --pill-fg: #e5e5e5;
+
+  --label-fg: rgba(255, 255, 255, 0.55);
+
+  /* Canvas Particles */
+  --particle-color: 255, 255, 255;
+
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -12,15 +105,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg-canvas);
+  color: var(--fg-primary);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
