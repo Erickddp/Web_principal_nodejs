@@ -16,7 +16,7 @@ export function HeroIdentity() {
                 {/* Main Avatar Container */}
                 <div className="relative w-full h-full rounded-full border-2 border-blue-500/10 overflow-hidden shadow-2xl backdrop-blur-sm">
                     <Image
-                        src="/avatar.png"
+                        src="/av2.png"
                         alt="Erick Domínguez"
                         fill
                         priority
