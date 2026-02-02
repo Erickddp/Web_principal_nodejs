@@ -34,7 +34,7 @@ export function SocialFooter() {
 
                 {/* LinkedIn Button */}
                 <a
-                    href={LINKEDIN_URL}
+                    href="https://www.linkedin.com/in/erick-dominguez-4296411a9/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex flex-col items-center gap-3"
@@ -50,7 +50,7 @@ export function SocialFooter() {
 
                 {/* Gmail Button */}
                 <a
-                    href={`mailto:${EMAIL_TO}?subject=Contacto%20desde%20erickddp.com&body=Hola%20Erick,%20`}
+                    href="mailto:erickddp620@gmail.com?subject=Contacto desde tu CV digital&body=Hola Erick, te contacto desde tu CV digital."
                     className="group flex flex-col items-center gap-3"
                     aria-label="Send Email via Gmail"
                 >
