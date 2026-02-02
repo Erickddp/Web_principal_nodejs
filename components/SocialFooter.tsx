@@ -1,5 +1,9 @@
-import { FacebookIcon } from "@/components/icons/FacebookIcon";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
+import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
+import { GmailIcon } from "@/components/icons/GmailIcon";
+
+const LINKEDIN_URL = "https://www.linkedin.com/in/REPLACE_ME";
+const EMAIL_TO = "REPLACE_ME@example.com";
 
 export function SocialFooter() {
     return (
@@ -28,19 +32,33 @@ export function SocialFooter() {
                     </span>
                 </a>
 
-                {/* Facebook Button */}
+                {/* LinkedIn Button */}
                 <a
-                    href="https://www.facebook.com/profile.php?id=61584844233250" // Placeholder
+                    href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex flex-col items-center gap-3"
-                    aria-label="Visit Facebook Profile"
+                    aria-label="Visit LinkedIn Profile"
                 >
-                    <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-active:scale-95 group-hover:bg-[#1877F2]/20 group-hover:border-[#1877F2]/50 shadow-lg group-hover:shadow-[#1877F2]/30">
-                        <FacebookIcon className="w-7 h-7 text-[var(--fg-secondary)] group-hover:text-[#1877F2] transition-colors duration-300" />
+                    <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-active:scale-95 group-hover:bg-[#0A66C2]/20 group-hover:border-[#0A66C2]/50 shadow-lg group-hover:shadow-[#0A66C2]/30">
+                        <LinkedInIcon className="w-7 h-7 text-[var(--fg-secondary)] group-hover:text-[#0A66C2] transition-colors duration-300" />
                     </div>
-                    <span className="text-[10px] text-[var(--label-fg)] tracking-wider font-medium group-hover:text-[#1877F2] transition-colors duration-300">
-                        Facebook
+                    <span className="text-[10px] text-[var(--label-fg)] tracking-wider font-medium group-hover:text-[#0A66C2] transition-colors duration-300">
+                        LinkedIn
+                    </span>
+                </a>
+
+                {/* Gmail Button */}
+                <a
+                    href={`mailto:${EMAIL_TO}?subject=Contacto%20desde%20erickddp.com&body=Hola%20Erick,%20`}
+                    className="group flex flex-col items-center gap-3"
+                    aria-label="Send Email via Gmail"
+                >
+                    <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-active:scale-95 group-hover:bg-[#EA4335]/20 group-hover:border-[#EA4335]/50 shadow-lg group-hover:shadow-[#EA4335]/30">
+                        <GmailIcon className="w-7 h-7 text-[var(--fg-secondary)] group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <span className="text-[10px] text-[var(--label-fg)] tracking-wider font-medium group-hover:text-[#EA4335] transition-colors duration-300">
+                        Gmail
                     </span>
                 </a>
 
